@@ -1,14 +1,11 @@
-# Use an official Tomcat runtime as a parent image
-FROM tomcat:10-jdk17-openjdk-slim
+FROM tomcat:10.1-jdk24-openjdk-slim
 
-# Remove default Tomcat webapps to save space/memory
+# Remove default Tomcat webapps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy your WAR file from your desktop into Tomcat's deployment folder
+# Copy your war file into the Tomcat webapps directory as ROOT.war
 COPY ClientLogbookProject.war /usr/local/tomcat/webapps/ROOT.war
 
-# Expose port 8080
 EXPOSE 8080
 
-# Start Tomcat
 CMD ["catalina.sh", "run"]
