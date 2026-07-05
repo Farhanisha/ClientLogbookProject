@@ -18,7 +18,7 @@ RUN wget https://archive.apache.org/dist/tomcat/tomcat-10/v${TOMCAT_VERSION}/bin
 RUN rm -rf $CATALINA_HOME/webapps/*
 
 # Copy your WAR file into Tomcat's deployment folder
-COPY target/ClientLogbookProject.war $CATALINA_HOME/webapps/ROOT.war
+COPY ClientLogbookProject.war $CATALINA_HOME/webapps/ROOT.war
 
 # Expose Render's web port
 EXPOSE 8080
